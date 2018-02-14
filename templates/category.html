@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-4">
+    <h3>{{category.name}}</h3>
+  </div>
+  <div class="col-md-8">
+    <h3>Movies</h3>
+    <ul>
+      {% for m in movies %}
+        <li><a href="{{url_for('render_movie', category=m.category.name, movie_id=m.id)}}">{{m.name}}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
