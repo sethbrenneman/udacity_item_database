@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    <form action="#" method="post">
+      <input type="text" name="name" value="{{movie.name}}"><br>
+      <textarea name="description">{{movie.description}}</textarea><br>
+      <select name="category">
+        <option value="Bad Movie" {% if movie.category.name == "Bad Movie" %}selected{% endif %}>Bad Movie</option>
+        <option value="Comedy" {% if movie.category.name == "Comedy" %}selected{% endif %}>Comedy</option>
+        <option value="Drama" {% if movie.category.name == "Drama" %}selected{% endif %}>Drama</option>
+        <option value="Scifi" {% if movie.category.name == "Scifi" %}selected{% endif %}>Scifi</option>
+        <option value="Western" {% if movie.category.name == "Western" %}selected{% endif %}>Western</option>
+      </select>
+      <button type="submit" name="submit" value="save">Save</button>
+      <button type="submit" name="submit" value="cancel">Cancel</button>
+    </form>
+  </div>
+</div>
+    <!-- <input type="text" name="name" value="{{movie.name}}">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <textarea name="description">{{movie.description}}</textarea>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <select name="category">
+      <option value="Bad Movie" {% if movie.category.name == "Bad Movie" %}selected{% endif %}>Bad Movie</option>
+      <option value="Comedy" {% if movie.category.name == "Comedy" %}selected{% endif %}>Comedy</option>
+      <option value="Drama" {% if movie.category.name == "Drama" %}selected{% endif %}>Drama</option>
+      <option value="Scifi" {% if movie.category.name == "Scifi" %}selected{% endif %}>Scifi</option>
+      <option value="Western" {% if movie.category.name == "Western" %}selected{% endif %}>Western</option>
+    </select>
+    <button name="submit">Submit</button>
+  </div>
+</div> -->
+{% endblock %}

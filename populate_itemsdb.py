@@ -62,23 +62,22 @@ movies = [{"name": "The Good, the Bad, and the Ugly", "description": "Three men 
 for m in movies:
   category = session.query(Category).filter(Category.name == m["category"]).one()
   movie = Movie(name=m["name"], description=m["description"], user_id=user.id, category_id=category.id)
-  # print movie.name + " " + movie.category.name
   session.add(movie)
 session.commit()
 
 users = session.query(User).all()
 
-print "........................"
-for u in users:
-  print u.name
+# print "........................"
+# for u in users:
+#   print u.name
 
-print "........................"
-categories = session.query(Category).all()
-for c in categories:
-  print c.name
+# print "........................"
+# categories = session.query(Category).all()
+# for c in categories:
+#   print c.name
 
-movies = session.query(Movie).all()
+# movies = session.query(Movie).all()
 
-print "........................"
-for m in movies:
-  print m.name + " "+ " " + m.user.name + " " + m.category.name
+# print "........................"
+# for m in movies:
+#   print m.name + " "+ " " + m.user.name + " " + m.category.name

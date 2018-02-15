@@ -11,13 +11,26 @@
       <div class="col-md-9">
       </div>
       <div class="col-md-3">
-        {% if not g|attr("user") %}
+        {% if 'username' not in session %}
           <a href="{{url_for('login')}}">Login</a>
         {% else %}
           <a href="{{url_for('logout')}}">Logout</a>
         {% endif %}
       </div>
     </div>
+    <div class='row'>
+      <div class='col-md-12'>
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul>
+                {% for message in messages %}
+                  <li> <strong> {{ message }} </strong> </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+        </div>
+      </div>
     {% block content %}
     {% endblock %}
   </div>

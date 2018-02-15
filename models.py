@@ -40,5 +40,5 @@ class Movie(Base):
             'category': self.category.name,
             'description': self.description}
 
-engine = create_engine('sqlite:///items.db', echo=True)
+engine = create_engine('sqlite:///items.db')
 Base.metadata.create_all(engine)

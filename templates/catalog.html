@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+{% if 'username' in session %}
+<div class="row">
+  <div class="col-md-12">
+    <a href="{{url_for('new_movie')}}">Add a movie</a>
+  </div>
+</div>
+{% endif %}
 <div class="row">
   <div class="col-md-4">
     <h3>Categories</h3>
@@ -13,7 +20,7 @@
     <h3>Movies</h3>
     <ul>
       {% for m in movies %}
-        <li>{{m.name}} (Category: {{m.category.name}})</li>
+        <li><a href="{{url_for('render_movie', category=m.category.name, movie_id=m.id)}}">{{m.name}}</a> (Category: {{m.category.name}})</li>
       {% endfor %}
     </ul>
   </div>
