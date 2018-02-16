@@ -83,8 +83,8 @@ def new_movie():
             name = request.form['name']
             description = request.form['description']
             if not name or not description:
-              flash('You must include both a name and description')
-              return redirect(url_for('new_movie'))
+                flash('You must include both a name and description')
+                return redirect(url_for('new_movie'))
             category_id = session.query(Category).filter(
                 Category.name == request.form['category']).one().id
             new_movie = Movie(name=name, description=description,
