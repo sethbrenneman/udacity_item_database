@@ -214,12 +214,11 @@ def gdisconnect():
         del login_session['credentials']
         del login_session['gplus_id']
         del login_session['username']
-        del login_session['picture']
         del login_session['email']
         del login_session['user_id']
 
         flash('Successfully disconnected!')
-        return redirect('/')
+        return redirect(url_for('render_catalog'))
 
     else:
         response = make_response(json.dumps(
@@ -283,7 +282,6 @@ def gconnect():
     data = answer.json()
 
     login_session['username'] = data['name']
-    login_session['picture'] = data['picture']
     login_session['email'] = data['email']
 
 
