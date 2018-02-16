@@ -13,21 +13,21 @@ session.query(Category).delete()
 session.commit()
 
 for u in session.query(User).all():
-  print u.name
+    print u.name
 
 for c in session.query(Category).all():
-  print c.name
+    print c.name
 
 for m in session.query(Movie).all():
-  print m.user_id + " " + str(m.category_id)
+    print m.user_id + " " + str(m.category_id)
 
 categories = ["Western", "Drama", "Comedy", "Scifi", "Bad Movie"]
 
 print "Adding categories..."
 
 for c in categories:
-  category = Category(name=c)
-  session.add(category)
+    category = Category(name=c)
+    session.add(category)
 
 session.commit()
 
@@ -60,24 +60,11 @@ movies = [{"name": "The Good, the Bad, and the Ugly", "description": "Three men 
           {"name": "Plan 9 From Outer Space", "description": "Aliens try to stop earth from developing a destructive superweapon", "category": "Bad Movie"}]
 
 for m in movies:
-  category = session.query(Category).filter(Category.name == m["category"]).one()
-  movie = Movie(name=m["name"], description=m["description"], user_id=user.id, category_id=category.id)
-  session.add(movie)
+    category = session.query(Category).filter(
+        Category.name == m["category"]).one()
+    movie = Movie(name=m["name"], description=m["description"],
+                  user_id=user.id, category_id=category.id)
+    session.add(movie)
 session.commit()
 
 users = session.query(User).all()
-
-# print "........................"
-# for u in users:
-#   print u.name
-
-# print "........................"
-# categories = session.query(Category).all()
-# for c in categories:
-#   print c.name
-
-# movies = session.query(Movie).all()
-
-# print "........................"
-# for m in movies:
-#   print m.name + " "+ " " + m.user.name + " " + m.category.name
